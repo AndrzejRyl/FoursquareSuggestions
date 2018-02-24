@@ -166,6 +166,3 @@ $RECYCLE.BIN/
 
 # Fabric
 app/fabric.properties
-
-# Server file (property of a recruiter)
-server.py
