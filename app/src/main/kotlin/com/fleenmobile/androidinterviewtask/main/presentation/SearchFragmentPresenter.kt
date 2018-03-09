@@ -33,18 +33,16 @@ class SearchFragmentPresenter(
     }
 
     private fun fetchVenues(searchQuery: String) {
-        view.clearVenues()
         compositeDisposable.add(
                 repository
                         .fetchVenues(searchQuery)
-                        .flatMap { repository.fetchVenuePhotos(it) }
+                        .doOnSubscribe { view.clearVenues() }
+                        .switchMap { repository.fetchVenuePhotos(it) }
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnTerminate { view.hideProgress() }
                         .subscribe(
-                                {
-                                    view.addVenue(it)
-                                },
+                                { view.addVenue(it) },
                                 { Timber.e(it) }
                         )
         )

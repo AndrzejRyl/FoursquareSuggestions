@@ -36,7 +36,12 @@ class VenuesViewHolder(val view: View, val context: Context) : RecyclerView.View
         val firstPhoto = venue.photos?.items?.firstOrNull()
 
         firstPhoto?.let {
-            val url = "${it.prefix}${it.suffix}"
+            val maxWidth = it.width.toFloat()
+            val maxHeight = it.height.toFloat()
+            val itemWidth = view.width
+            val itemHeight = itemWidth * (maxWidth / maxHeight)
+
+            val url = it.url(itemWidth, itemHeight.toInt())
 
             Picasso.with(context)
                     .load(url)
