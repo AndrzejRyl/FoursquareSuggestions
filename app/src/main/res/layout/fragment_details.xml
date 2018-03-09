@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_horizontal_30"
+        style="@style/GuidelineHorizontal"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <android.support.v4.view.ViewPager
+        style="@style/Empty"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal_30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/details_fragment_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_horizontal_30"
+        tools:text="London Bridge" />
+
+    <TextView
+        android:id="@+id/details_fragment_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/details_fragment_location_icon"
+        app:layout_constraintStart_toEndOf="@+id/details_fragment_location_icon"
+        app:layout_constraintTop_toTopOf="@+id/details_fragment_location_icon"
+        tools:text="London SE1 9DD, Great Britain" />
+
+    <ImageView
+        android:id="@+id/details_fragment_location_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/details_fragment_name"
+        app:layout_constraintTop_toTopOf="@+id/guideline_horizontal_30"
+        app:srcCompat="@drawable/ic_location" />
+
+    <TextView
+        android:id="@+id/details_fragment_opening_hours_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/opening_hours"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_fragment_location_icon" />
+
+    <TextView
+        android:id="@+id/details_fragment_opening_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/details_fragment_opening_hours_header"
+        app:layout_constraintTop_toBottomOf="@+id/details_fragment_location_icon"
+        tools:text="10.00-18.00" />
+
+    <TextView
+        android:id="@+id/details_fragment_people_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        tools:text="23 people are here"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_fragment_opening_hours_header" />
+
+
+</android.support.constraint.ConstraintLayout>
