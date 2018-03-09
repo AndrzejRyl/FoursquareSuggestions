@@ -5,7 +5,6 @@ import android.support.annotation.CallSuper
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import butterknife.ButterKnife
-import com.hifamily.hidaddy.feature.common.BaseContract
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -17,9 +16,12 @@ abstract class BaseActivity<P : BaseContract.Presenter>(
         private val isHandlingEvents: Boolean = false
 ) : AppCompatActivity(), HasSupportFragmentInjector {
 
-    @Inject lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
-    @Inject lateinit var presenter: P
-    @Inject lateinit var eventBus: EventBus
+    @Inject
+    lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
+    @Inject
+    lateinit var presenter: P
+    @Inject
+    lateinit var eventBus: EventBus
 
     abstract val layoutId: Int
 
