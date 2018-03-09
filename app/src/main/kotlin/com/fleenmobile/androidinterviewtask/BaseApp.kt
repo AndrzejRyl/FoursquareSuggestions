@@ -6,12 +6,11 @@ import com.fleenmobile.androidinterviewtask.util.injection.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
-import dagger.android.HasServiceInjector
 import net.danlew.android.joda.JodaTimeAndroid
 import timber.log.Timber
 import javax.inject.Inject
 
-abstract class BaseApp : Application(), HasActivityInjector, HasServiceInjector {
+class BaseApp : Application(), HasActivityInjector {
 
     @Inject
     lateinit var activityDispatchingAndroidInjector: DispatchingAndroidInjector<Activity>

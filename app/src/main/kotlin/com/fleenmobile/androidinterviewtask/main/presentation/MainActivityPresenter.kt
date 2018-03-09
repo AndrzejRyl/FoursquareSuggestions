@@ -8,10 +8,11 @@ class MainActivityPresenter(
 ) : MainActivityContract.Presenter {
 
     override fun initialize() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        view.showSearchFragment()
+        // todo request permissions
     }
 
     override fun clear() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        //todo
     }
 }

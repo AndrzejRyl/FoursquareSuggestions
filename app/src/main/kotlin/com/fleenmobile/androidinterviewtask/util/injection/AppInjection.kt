@@ -5,6 +5,8 @@ import android.content.Context
 import com.fleenmobile.androidinterviewtask.BaseApp
 import com.fleenmobile.androidinterviewtask.util.injection.binding.ActivityBinderModule
 import com.fleenmobile.androidinterviewtask.util.injection.binding.FragmentBinderModule
+import com.fleenmobile.androidinterviewtask.util.injection.module.NetworkModule
+import com.fleenmobile.androidinterviewtask.util.injection.module.RepositoryModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
@@ -40,6 +42,8 @@ class AppModule {
     AndroidInjectionModule::class,
     ActivityBinderModule::class,
     FragmentBinderModule::class,
+    RepositoryModule::class,
+    NetworkModule::class,
     AppModule::class])
 interface AppComponent {
 
