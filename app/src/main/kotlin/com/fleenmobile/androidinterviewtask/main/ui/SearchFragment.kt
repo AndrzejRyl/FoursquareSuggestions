@@ -50,11 +50,15 @@ class SearchFragment : BaseFragment<SearchFragmentContract.Presenter>(),
     override fun getSearchTextWatcher(): Observable<String> =
             RxTextView
                     .textChanges(searchEditText)
-                    .map { toString() }
+                    .map { it.toString() }
                     .debounce(EDIT_TEXT_TIMEOUT, TimeUnit.MILLISECONDS)
 
-    override fun updateVenuesList(list: List<Venue>) {
-        venuesAdapter.updateData(list)
+    override fun addVenue(venue: Venue) {
+        venuesAdapter.addItem(venue)
+    }
+
+    override fun clearVenues() {
+        venuesAdapter.clearItems()
     }
 
     override fun showProgress() {

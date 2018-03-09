@@ -1,5 +1,6 @@
 package com.fleenmobile.androidinterviewtask.util.injection.module
 
+import com.fleenmobile.androidinterviewtask.api.ApiService
 import com.fleenmobile.androidinterviewtask.util.repository.Repository
 import com.fleenmobile.androidinterviewtask.util.repository.RepositoryImpl
 import dagger.Module
@@ -11,6 +12,6 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun repository(): Repository =
-            RepositoryImpl()
+    fun repository(apiService: ApiService): Repository =
+            RepositoryImpl(apiService)
 }

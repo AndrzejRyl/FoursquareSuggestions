@@ -33,7 +33,7 @@ class VenuesViewHolder(val view: View, val context: Context) : RecyclerView.View
 
         nameTextView.text = venue.name
 
-        val firstPhoto = venue.photos.items.firstOrNull()
+        val firstPhoto = venue.photos?.items?.firstOrNull()
 
         firstPhoto?.let {
             val url = "${it.prefix}${it.suffix}"

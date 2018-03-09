@@ -10,7 +10,8 @@ interface SearchFragmentContract {
         fun showProgress()
         fun hideProgress()
         fun getSearchTextWatcher(): Observable<String>
-        fun updateVenuesList(list: List<Venue>)
+        fun addVenue(venue: Venue)
+        fun clearVenues()
     }
 
     interface Router {
