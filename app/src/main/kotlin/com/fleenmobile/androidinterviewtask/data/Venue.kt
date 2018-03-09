@@ -1,9 +1,12 @@
 package com.fleenmobile.androidinterviewtask.data
 
+import org.parceler.Parcel
+
+@Parcel
 data class Venue(
-        val id: String,
-        val name: String,
-        val location: VenueLocation,
-        val hereNow : HereNowData,
-        val photos: PhotoData
+        val id: String = "",
+        val name: String = "",
+        val location: VenueLocation = VenueLocation(),
+        val hereNow : HereNowData = HereNowData(),
+        val photos: PhotoData = PhotoData()
 )

@@ -1,6 +1,10 @@
 package com.fleenmobile.androidinterviewtask.util.injection.module
 
+import android.content.Context
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import com.fleenmobile.androidinterviewtask.main.SearchFragmentContract
+import com.fleenmobile.androidinterviewtask.main.adapter.VenuesAdapter
 import com.fleenmobile.androidinterviewtask.main.navigation.SearchFragmentRouter
 import com.fleenmobile.androidinterviewtask.main.presentation.SearchFragmentPresenter
 import com.fleenmobile.androidinterviewtask.main.ui.SearchFragment
@@ -27,4 +31,10 @@ class SearchFragmentModule {
             repository: Repository
     ): SearchFragmentContract.Presenter =
             SearchFragmentPresenter(view, router, compositeDisposable, repository)
+
+    @Provides
+    fun adapter(): VenuesAdapter = VenuesAdapter(arrayListOf())
+
+    @Provides
+    fun layoutManager(context: Context): RecyclerView.LayoutManager = LinearLayoutManager(context)
 }

@@ -3,7 +3,9 @@ package com.fleenmobile.androidinterviewtask.main.presentation
 import com.fleenmobile.androidinterviewtask.data.Venue
 import com.fleenmobile.androidinterviewtask.main.SearchFragmentContract
 import com.fleenmobile.androidinterviewtask.util.repository.Repository
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 
 class SearchFragmentPresenter(
@@ -17,6 +19,8 @@ class SearchFragmentPresenter(
         compositeDisposable.add(
                 view
                         .getSearchTextWatcher()
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
                         .doOnNext { view.showProgress() }
                         .subscribe(
                                 { fetchVenues(it) },
@@ -32,6 +36,8 @@ class SearchFragmentPresenter(
         compositeDisposable.add(
                 repository
                         .fetchVenues(searchQuery)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
                         .doOnTerminate { view.hideProgress() }
                         .subscribe(
                                 {

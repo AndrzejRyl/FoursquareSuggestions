@@ -1,5 +1,9 @@
 package com.fleenmobile.androidinterviewtask.data
 
-data class PhotoItem(val prefix: String, val suffix: String)
+import org.parceler.Parcel
 
-data class PhotoData(val count: Int, val items: List<PhotoItem>)
+@Parcel
+data class PhotoItem(val prefix: String = "", val suffix: String = "")
+
+@Parcel
+data class PhotoData(val count: Int = 0, val items: List<PhotoItem> = listOf())

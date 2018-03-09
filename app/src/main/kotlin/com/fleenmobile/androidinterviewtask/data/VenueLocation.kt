@@ -1,3 +1,6 @@
 package com.fleenmobile.androidinterviewtask.data
 
-data class VenueLocation(val formattedAddress: String)
+import org.parceler.Parcel
+
+@Parcel
+data class VenueLocation(val formattedAddress: String = "")

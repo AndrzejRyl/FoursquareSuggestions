@@ -21,8 +21,8 @@ class RepositoryImpl : Repository {
                                 HereNowData("23 people here"),
                                 PhotoData(1,
                                         listOf(
-                                                PhotoItem("https://igx.4sqi.net/img/general/",
-                                                        "/1022386_wEd7VXnWzp5lajvRLtAPunoiufDSIq8PMEtEuIH2Tzg.jpg")))),
+                                                PhotoItem("http://c0419384.cdn2.cloudfiles.rackspacecloud.com/qtanhbta-9027_l-dsad-main.jpg",
+                                                        "")))),
                         Venue(
                                 "venue2",
                                 "Venue2",
@@ -30,8 +30,8 @@ class RepositoryImpl : Repository {
                                 HereNowData("23 people here"),
                                 PhotoData(1,
                                         listOf(
-                                                PhotoItem("https://igx.4sqi.net/img/general/",
-                                                        "/1022386_wEd7VXnWzp5lajvRLtAPunoiufDSIq8PMEtEuIH2Tzg.jpg")))),
+                                                PhotoItem("http://c0419384.cdn2.cloudfiles.rackspacecloud.com/qtanhbta-9027_l-dsad-main.jpg",
+                                                        "")))),
                         Venue(
                                 "venue3",
                                 "Venue3",
@@ -39,12 +39,12 @@ class RepositoryImpl : Repository {
                                 HereNowData("23 people here"),
                                 PhotoData(3,
                                         listOf(
-                                                PhotoItem("https://igx.4sqi.net/img/general/",
-                                                        "/1022386_wEd7VXnWzp5lajvRLtAPunoiufDSIq8PMEtEuIH2Tzg.jpg"),
-                                                PhotoItem("https://igx.4sqi.net/img/general/",
-                                                        "/1022386_wEd7VXnWzp5lajvRLtAPunoiufDSIq8PMEtEuIH2Tzg.jpg"),
-                                                PhotoItem("https://igx.4sqi.net/img/general/",
-                                                        "/1022386_wEd7VXnWzp5lajvRLtAPunoiufDSIq8PMEtEuIH2Tzg.jpg"))))
+                                                PhotoItem("http://c0419384.cdn2.cloudfiles.rackspacecloud.com/qtanhbta-9027_l-dsad-main.jpg",
+                                                        ""),
+                                                PhotoItem("http://c0419384.cdn2.cloudfiles.rackspacecloud.com/qtanhbta-9027_l-dsad-main.jpg",
+                                                        ""),
+                                                PhotoItem("http://c0419384.cdn2.cloudfiles.rackspacecloud.com/qtanhbta-9027_l-dsad-main.jpg",
+                                                        ""))))
                 )
         )
     }

@@ -37,8 +37,11 @@ abstract class BaseFragment<P : BaseContract.Presenter> : Fragment() {
     @CallSuper
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initialize()
         presenter.initialize()
     }
+
+    open fun initialize() = Unit
 
     @CallSuper
     override fun onDestroyView() {

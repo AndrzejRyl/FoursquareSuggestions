@@ -9,16 +9,18 @@ import com.fleenmobile.androidinterviewtask.R
 import com.fleenmobile.androidinterviewtask.data.Venue
 import com.fleenmobile.androidinterviewtask.hide
 import com.fleenmobile.androidinterviewtask.main.SearchFragmentContract
+import com.fleenmobile.androidinterviewtask.main.adapter.VenuesAdapter
 import com.fleenmobile.androidinterviewtask.show
 import com.jakewharton.rxbinding2.widget.RxTextView
 import io.reactivex.Observable
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
 class SearchFragment : BaseFragment<SearchFragmentContract.Presenter>(),
         SearchFragmentContract.View {
 
     companion object {
-        const val EDIT_TEXT_TIMEOUT = 300L
+        const val EDIT_TEXT_TIMEOUT = 600L
     }
 
     @BindView(R.id.search_fragment_search)
@@ -30,7 +32,19 @@ class SearchFragment : BaseFragment<SearchFragmentContract.Presenter>(),
     @BindView(R.id.search_fragment_venues_list)
     lateinit var venuesRecyclerView: RecyclerView
 
+    @Inject
+    lateinit var venuesAdapter: VenuesAdapter
+
+    @Inject
+    lateinit var layoutManager: RecyclerView.LayoutManager
+
     override val layoutId: Int = R.layout.fragment_search
+
+    override fun initialize() {
+        super.initialize()
+        venuesRecyclerView.layoutManager = layoutManager
+        venuesRecyclerView.adapter = venuesAdapter
+    }
 
     //region View
     override fun getSearchTextWatcher(): Observable<String> =
@@ -40,7 +54,7 @@ class SearchFragment : BaseFragment<SearchFragmentContract.Presenter>(),
                     .debounce(EDIT_TEXT_TIMEOUT, TimeUnit.MILLISECONDS)
 
     override fun updateVenuesList(list: List<Venue>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        venuesAdapter.updateData(list)
     }
 
     override fun showProgress() {

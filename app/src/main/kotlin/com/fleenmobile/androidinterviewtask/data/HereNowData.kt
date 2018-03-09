@@ -1,3 +1,6 @@
 package com.fleenmobile.androidinterviewtask.data
 
-data class HereNowData(val summary: String)
+import org.parceler.Parcel
+
+@Parcel
+data class HereNowData(val summary: String = "")

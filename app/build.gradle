@@ -83,6 +83,10 @@ dependencies {
     //Timber
     implementation "com.jakewharton.timber:timber:4.5.1"
     implementation 'com.android.support:recyclerview-v7:26.1.0'
+
+    //Parceler
+    implementation "org.parceler:parceler-api:$parceler_version"
+    kapt "org.parceler:parceler:$parceler_version"
 }
 repositories {
     mavenCentral()
