@@ -8,8 +8,14 @@ interface MainActivityContract {
     interface View {
         fun showSearchFragment()
         fun showDetailsFragment(venue: Venue)
+        fun finish()
     }
 
     interface Router
-    interface Presenter : BaseContract.Presenter
+
+    interface Presenter : BaseContract.Presenter {
+        fun onNavigateToSearchEvent()
+        fun onNavigateToDetailsEvent(venue: Venue)
+        fun onBackPressed(inDetailsFragment: Boolean)
+    }
 }

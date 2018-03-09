@@ -20,6 +20,7 @@ class SearchFragment : BaseFragment<SearchFragmentContract.Presenter>(),
         SearchFragmentContract.View {
 
     companion object {
+        const val TAG = "SearchFragment"
         const val EDIT_TEXT_TIMEOUT = 600L
     }
 
@@ -43,6 +44,7 @@ class SearchFragment : BaseFragment<SearchFragmentContract.Presenter>(),
     override fun initialize() {
         super.initialize()
         venuesRecyclerView.layoutManager = layoutManager
+        venuesAdapter.onVenueClicked = { presenter.venueChosen(it) }
         venuesRecyclerView.adapter = venuesAdapter
     }
 

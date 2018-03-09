@@ -1,6 +1,8 @@
 package com.fleenmobile.androidinterviewtask.util.injection.module
 
 import com.fleenmobile.androidinterviewtask.main.MainActivityContract
+import com.fleenmobile.androidinterviewtask.main.navigation.EventHelper
+import com.fleenmobile.androidinterviewtask.main.navigation.EventHelperImpl
 import com.fleenmobile.androidinterviewtask.main.navigation.MainActivityRouter
 import com.fleenmobile.androidinterviewtask.main.presentation.MainActivityPresenter
 import com.fleenmobile.androidinterviewtask.main.ui.MainActivity
@@ -22,4 +24,8 @@ class MainActivityModule {
     @Provides
     fun presenter(view: MainActivityContract.View, router: MainActivityContract.Router): MainActivityContract.Presenter =
             MainActivityPresenter(view, router)
+
+    @Provides
+    fun eventHelper(presenter: MainActivityContract.Presenter): EventHelper =
+            EventHelperImpl(presenter)
 }

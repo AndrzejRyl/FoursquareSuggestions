@@ -1,0 +1,3 @@
+package com.fleenmobile.androidinterviewtask.main.navigation.events
+
+abstract class MainNavigationEvent
