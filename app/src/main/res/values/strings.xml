@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">AndroidInterviewTask</string>
+    <string name="app_name">Foursquare</string>
+    <string name="opening_hours">Opening hours</string>
 </resources>
