@@ -4,10 +4,10 @@ import org.parceler.Parcel
 
 @Parcel
 data class PhotoItem(
-        val prefix: String = "",
-        val suffix: String = "",
-        val width: Int = 500,
-        val height: Int = 300
+        private val prefix: String = "",
+        private val suffix: String = "",
+        private val width: Int = 500,
+        private val height: Int = 300
 ) {
     fun url(viewWidth: Int): String {
         val maxWidth = width.toFloat()

@@ -6,7 +6,7 @@ data class VenuesResponseGroup(val type: String, val name: String, val items: Li
 
 data class VenuesResponseData(val groups: List<VenuesResponseGroup>)
 
-data class VenuesResponse(val response: VenuesResponseData) {
+data class VenuesResponse(private val response: VenuesResponseData) {
     fun getVenues(): List<Venue> {
         val groups = response.groups
         val recommendedGroup = groups

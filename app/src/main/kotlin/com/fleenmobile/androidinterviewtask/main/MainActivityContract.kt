@@ -9,9 +9,8 @@ interface MainActivityContract {
         fun showSearchFragment()
         fun showDetailsFragment(venue: Venue)
         fun finish()
+        fun showPermissionsError()
     }
-
-    interface Router
 
     interface Presenter : BaseContract.Presenter {
         fun onNavigateToSearchEvent()
