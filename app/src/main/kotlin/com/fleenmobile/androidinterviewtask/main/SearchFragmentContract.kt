@@ -12,6 +12,9 @@ interface SearchFragmentContract {
         fun getSearchTextWatcher(): Observable<String>
         fun addVenue(venue: Venue)
         fun clearVenues()
+        fun hideKeyboard()
+        fun showKeyboard()
+        fun focusOnSearch()
     }
 
     interface Router {

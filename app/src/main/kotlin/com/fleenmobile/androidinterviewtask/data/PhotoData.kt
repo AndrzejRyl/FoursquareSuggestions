@@ -9,7 +9,13 @@ data class PhotoItem(
         val width: Int = 500,
         val height: Int = 300
 ) {
-    fun url(width: Int, height: Int) = "${prefix}${height}x${width}${suffix}"
+    fun url(viewWidth: Int): String {
+        val maxWidth = width.toFloat()
+        val maxHeight = height.toFloat()
+        val itemHeight = viewWidth * (maxWidth / maxHeight)
+
+        return "${prefix}${itemHeight.toInt()}x${viewWidth}${suffix}"
+    }
 }
 
 @Parcel

@@ -5,6 +5,10 @@ import com.fleenmobile.androidinterviewtask.BaseContract
 interface DetailsFragmentContract {
 
     interface View
-    interface Router
+
+    interface Router {
+        fun navigateToSearch()
+    }
+
     interface Presenter : BaseContract.Presenter
 }

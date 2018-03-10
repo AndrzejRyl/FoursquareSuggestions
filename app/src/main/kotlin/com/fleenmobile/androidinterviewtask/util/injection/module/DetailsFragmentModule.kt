@@ -1,6 +1,8 @@
 package com.fleenmobile.androidinterviewtask.util.injection.module
 
+import android.content.Context
 import com.fleenmobile.androidinterviewtask.main.DetailsFragmentContract
+import com.fleenmobile.androidinterviewtask.main.adapter.DetailsPhotosAdapter
 import com.fleenmobile.androidinterviewtask.main.navigation.DetailsFragmentRouter
 import com.fleenmobile.androidinterviewtask.main.presentation.DetailsFragmentPresenter
 import com.fleenmobile.androidinterviewtask.main.ui.DetailsFragment
@@ -20,4 +22,8 @@ class DetailsFragmentModule {
     @Provides
     fun presenter(view: DetailsFragmentContract.View, router: DetailsFragmentContract.Router)
             : DetailsFragmentContract.Presenter = DetailsFragmentPresenter(view, router)
+
+    @Provides
+    fun adapter(context: Context): DetailsPhotosAdapter =
+            DetailsPhotosAdapter(context, arrayListOf())
 }

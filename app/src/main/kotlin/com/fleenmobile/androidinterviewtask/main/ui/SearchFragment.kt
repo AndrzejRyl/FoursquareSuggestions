@@ -15,11 +15,16 @@ import com.jakewharton.rxbinding2.widget.RxTextView
 import io.reactivex.Observable
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
+import android.view.inputmethod.InputMethodManager.HIDE_IMPLICIT_ONLY
+import android.content.Context.INPUT_METHOD_SERVICE
+
+
 
 class SearchFragment : BaseFragment<SearchFragmentContract.Presenter>(),
         SearchFragmentContract.View {
 
     companion object {
+        const val TAG = "SearchFragment"
         const val EDIT_TEXT_TIMEOUT = 600L
     }
 
@@ -43,6 +48,7 @@ class SearchFragment : BaseFragment<SearchFragmentContract.Presenter>(),
     override fun initialize() {
         super.initialize()
         venuesRecyclerView.layoutManager = layoutManager
+        venuesAdapter.onVenueClicked = { presenter.venueChosen(it) }
         venuesRecyclerView.adapter = venuesAdapter
     }
 
@@ -69,6 +75,10 @@ class SearchFragment : BaseFragment<SearchFragmentContract.Presenter>(),
     override fun hideProgress() {
         progressBar.hide()
         venuesRecyclerView.show()
+    }
+
+    override fun focusOnSearch() {
+        searchEditText.requestFocus()
     }
     //endregion
 }

@@ -49,4 +49,12 @@ abstract class BaseFragment<P : BaseContract.Presenter> : Fragment() {
         presenter.clear()
         unbinder.unbind()
     }
+
+    fun hideKeyboard() {
+        activity.hideKeyboard()
+    }
+
+    fun showKeyboard() {
+        activity.showKeyboard()
+    }
 }
