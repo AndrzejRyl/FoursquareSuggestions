@@ -3,8 +3,7 @@ package com.fleenmobile.androidinterviewtask.main.presentation
 import com.fleenmobile.androidinterviewtask.main.DetailsFragmentContract
 
 class DetailsFragmentPresenter(
-        private val view: DetailsFragmentContract.View,
-        private val router: DetailsFragmentContract.Router
+        private val view: DetailsFragmentContract.View
 ) : DetailsFragmentContract.Presenter {
 
     override fun initialize() {

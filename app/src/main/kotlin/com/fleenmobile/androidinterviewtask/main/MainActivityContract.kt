@@ -11,8 +11,6 @@ interface MainActivityContract {
         fun finish()
     }
 
-    interface Router
-
     interface Presenter : BaseContract.Presenter {
         fun onNavigateToSearchEvent()
         fun onNavigateToDetailsEvent(venue: Venue)

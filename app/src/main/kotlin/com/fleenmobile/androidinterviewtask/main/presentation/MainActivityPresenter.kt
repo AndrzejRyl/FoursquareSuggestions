@@ -4,8 +4,7 @@ import com.fleenmobile.androidinterviewtask.data.Venue
 import com.fleenmobile.androidinterviewtask.main.MainActivityContract
 
 class MainActivityPresenter(
-        private val view: MainActivityContract.View,
-        private val router: MainActivityContract.Router
+        private val view: MainActivityContract.View
 ) : MainActivityContract.Presenter {
 
     override fun initialize() {
