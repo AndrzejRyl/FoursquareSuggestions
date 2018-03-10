@@ -9,6 +9,7 @@ interface MainActivityContract {
         fun showSearchFragment()
         fun showDetailsFragment(venue: Venue)
         fun finish()
+        fun showPermissionsError()
     }
 
     interface Presenter : BaseContract.Presenter {

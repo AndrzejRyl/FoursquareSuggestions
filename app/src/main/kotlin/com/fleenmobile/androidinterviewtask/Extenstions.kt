@@ -5,6 +5,7 @@ import android.content.Context
 import android.support.v4.app.FragmentActivity
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 
 fun View.hide() {
     visibility = View.GONE
@@ -29,3 +30,8 @@ fun FragmentActivity.showKeyboard() {
     val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY)
 }
+
+fun Activity.showToast(
+        message: String,
+        lenght: Int
+) = Toast.makeText(this, message, lenght).show()

@@ -1,19 +1,43 @@
 package com.fleenmobile.androidinterviewtask.main.presentation
 
+import android.Manifest
 import com.fleenmobile.androidinterviewtask.data.Venue
 import com.fleenmobile.androidinterviewtask.main.MainActivityContract
+import com.fleenmobile.androidinterviewtask.util.permissions.PermissionHandler
+import io.reactivex.disposables.CompositeDisposable
+import timber.log.Timber
 
 class MainActivityPresenter(
-        private val view: MainActivityContract.View
+        private val view: MainActivityContract.View,
+        private val permissionHandler: PermissionHandler,
+        private val compositeDisposable: CompositeDisposable
 ) : MainActivityContract.Presenter {
 
     override fun initialize() {
         view.showSearchFragment()
-        // todo request permissions
+        requestPermissions()
+    }
+
+    private fun requestPermissions() {
+        compositeDisposable.add(
+                permissionHandler
+                        .request(Manifest.permission.INTERNET)
+                        .subscribe(
+                                { granted ->
+                                    if (!granted) {
+                                        view.showPermissionsError()
+                                    }
+                                },
+                                {
+                                    Timber.e(it)
+                                    view.showPermissionsError()
+                                }
+                        )
+        )
     }
 
     override fun clear() {
-        //todo
+        compositeDisposable.clear()
     }
 
     override fun onNavigateToSearchEvent() {
