@@ -9,19 +9,26 @@ import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
+import org.mockito.Mockito.verifyNoMoreInteractions
 
 class SearchFragmentRouterTest : BaseTest() {
 
     @Mock
     lateinit var eventBus: EventBus
 
-    private val venue = Venue()
+    @Mock
+    lateinit var venue: Venue
 
     private lateinit var router: SearchFragmentContract.Router
 
     override fun setup() {
         super.setup()
         router = SearchFragmentRouter(eventBus)
+    }
+
+    override fun tearDown() {
+        super.tearDown()
+        verifyNoMoreInteractions(eventBus, venue)
     }
 
     @Test

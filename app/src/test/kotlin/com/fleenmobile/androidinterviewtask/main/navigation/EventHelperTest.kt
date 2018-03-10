@@ -18,7 +18,8 @@ class EventHelperTest : BaseTest() {
 
     private lateinit var eventHelper: EventHelper
 
-    private val venue: Venue = Venue()
+    @Mock
+    lateinit var venue: Venue
 
     override fun setup() {
         super.setup()
@@ -27,7 +28,7 @@ class EventHelperTest : BaseTest() {
 
     override fun tearDown() {
         super.tearDown()
-        verifyNoMoreInteractions(presenter)
+        verifyNoMoreInteractions(presenter, venue)
     }
 
     @Test
