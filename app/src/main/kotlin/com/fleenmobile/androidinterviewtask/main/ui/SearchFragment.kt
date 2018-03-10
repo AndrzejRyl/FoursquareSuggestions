@@ -15,6 +15,10 @@ import com.jakewharton.rxbinding2.widget.RxTextView
 import io.reactivex.Observable
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
+import android.view.inputmethod.InputMethodManager.HIDE_IMPLICIT_ONLY
+import android.content.Context.INPUT_METHOD_SERVICE
+
+
 
 class SearchFragment : BaseFragment<SearchFragmentContract.Presenter>(),
         SearchFragmentContract.View {
@@ -71,6 +75,10 @@ class SearchFragment : BaseFragment<SearchFragmentContract.Presenter>(),
     override fun hideProgress() {
         progressBar.hide()
         venuesRecyclerView.show()
+    }
+
+    override fun focusOnSearch() {
+        searchEditText.requestFocus()
     }
     //endregion
 }

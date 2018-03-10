@@ -16,9 +16,13 @@ class SearchFragmentPresenter(
 ) : SearchFragmentContract.Presenter {
 
     override fun initialize() {
+        view.showKeyboard()
+        view.focusOnSearch()
+
         compositeDisposable.add(
                 view
                         .getSearchTextWatcher()
+                        .filter { !it.isEmpty() }
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnNext { view.showProgress() }
@@ -49,6 +53,7 @@ class SearchFragmentPresenter(
     }
 
     override fun venueChosen(venue: Venue) {
+        view.hideKeyboard()
         router.navigateToDetails(venue)
     }
 
