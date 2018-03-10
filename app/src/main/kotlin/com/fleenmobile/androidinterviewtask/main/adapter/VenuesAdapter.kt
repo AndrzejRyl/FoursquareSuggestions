@@ -29,12 +29,6 @@ class VenuesAdapter(val data: ArrayList<Venue>) : RecyclerView.Adapter<VenuesVie
         }
     }
 
-    fun updateData(list: List<Venue>) {
-        data.clear()
-        data.addAll(list)
-        notifyDataSetChanged()
-    }
-
     fun addItem(venue: Venue) {
         data.add(venue)
         notifyDataSetChanged()

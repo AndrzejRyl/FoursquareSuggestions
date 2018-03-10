@@ -27,7 +27,7 @@ class DetailsFragment : BaseFragment<DetailsFragmentContract.Presenter>(), Detai
     lateinit var locationTextView: TextView
 
     @BindView(R.id.details_fragment_opening_hours)
-    lateinit var openingHourseTextView: TextView
+    lateinit var openingHoursTextView: TextView
 
     @BindView(R.id.details_fragment_people_count)
     lateinit var peopleCountTextView: TextView
@@ -39,13 +39,15 @@ class DetailsFragment : BaseFragment<DetailsFragmentContract.Presenter>(), Detai
 
     override fun initialize() {
         super.initialize()
-
         val venue = Parcels.unwrap<Venue>(arguments.getParcelable(MainActivity.VENUE_KEY))
+        presenter.onVenue(venue)
+    }
 
+    override fun initView(venue: Venue){
         venue.apply {
             nameTextView.text = name
             locationTextView.text = location.getFullAddress()
-            openingHourseTextView.text = hours.status
+            openingHoursTextView.text = hours.status
             peopleCountTextView.text = hereNow.summary
 
             photosViewPager.adapter = photosAdapter
