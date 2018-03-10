@@ -8,5 +8,6 @@ data class Venue(
         val name: String = "",
         val location: VenueLocation = VenueLocation(),
         val hereNow: HereNowData = HereNowData(),
+        val hours: HoursData = HoursData(),
         var photos: PhotoData? = PhotoData()
 )
