@@ -40,7 +40,7 @@ class VenuesViewHolder(val view: View, val context: Context) : RecyclerView.View
 
             Picasso.with(context)
                     .load(url)
-                    .placeholder(R.drawable.ic_launcher_background)
+                    .placeholder(R.drawable.ic_placeholder)
                     .into(imageView)
         }
     }
